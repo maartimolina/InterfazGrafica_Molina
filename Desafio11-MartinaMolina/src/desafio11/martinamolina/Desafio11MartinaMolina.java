@@ -6,6 +6,10 @@ package desafio11.martinamolina;
 
 import vista.Tareas;
 import controlador.controlador;
+import controlador.ControladorConversor;
+import modelo.Conversor;
+import vista.conversor;
+import javax.swing.SwingUtilities;
 /**
  *
  * @author Alumno
@@ -16,9 +20,17 @@ public class Desafio11MartinaMolina {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Tareas vista = new Tareas();
-        new controlador(vista);
-        vista.setVisible(true);
+        SwingUtilities.invokeLater(()->{
+        Tareas vistaTareas= new Tareas();
+        new controlador(vistaTareas);
+        vistaTareas.setVisible(true);
+        
+        Conversor modelo = new Conversor();
+        conversor vistaConv = new conversor();
+        new ControladorConversor(modelo, vistaConv);
+        vistaConv.setVisible(true);
+    });
+        
     }
     
 }
